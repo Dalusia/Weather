@@ -168,7 +168,7 @@ const Home: React.FC = () => {
                   <ValueWithUnit value={x.the_temp} unit="°C" />
                 </TableCell>
                 <TableCell className={classes.tableCell}>
-                  <div style={{ display: "flex", lineHeight: "20px" }}>
+                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
                     <img
                       className={classes.windArrow}
                       src="/arrow.png"

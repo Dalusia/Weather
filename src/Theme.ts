@@ -1,5 +1,4 @@
 import { createMuiTheme } from "@material-ui/core";
-import { purple, teal, pink, blueGrey, indigo } from "@material-ui/core/colors";
 
 const themeOverrides = {
   // MuiList: {
