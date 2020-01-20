@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
       borderSpacing: 0,
       width: "100%"
     },
-    tableRow: {
-      padding: "0 0"
-    },
     tableCell: {
       //padding: '12px 0px 12px 24px',
       textAlign: "right",
@@ -139,19 +136,19 @@ const Home: React.FC = () => {
         <TableHead>
           <TableRow>
             <TableCell align="right">Day</TableCell>
-            <TableCell />
+            <TableCell align="right">Weather</TableCell>
             <TableCell align="right">Temp.</TableCell>
             <TableCell align="right">Wind</TableCell>
             <TableCell align="right">Pressure</TableCell>
             <TableCell align="right">Humidity</TableCell>
             <TableCell align="right">Visibility</TableCell>
-            <TableCell align="right">Pred.</TableCell>
+            <TableCell align="right" style={{paddingRight: 48}}>Pred.</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {forecast &&
             forecast.map((x: Weather) => (
-              <TableRow className={classes.tableCell} key={x.id}>
+              <TableRow key={x.id}>
                 <TableCell className={classes.tableCell}>
                   {dayName(new Date(x.applicable_date))}
                 </TableCell>
@@ -188,7 +185,7 @@ const Home: React.FC = () => {
                 <TableCell className={classes.tableCell}>
                   <ValueWithUnit value={x.visibility} unit="miles" />
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell className={classes.tableCell} style={{paddingRight: 48}}>
                   <ValueWithUnit value={x.predictability} unit="%" />
                 </TableCell>
               </TableRow>

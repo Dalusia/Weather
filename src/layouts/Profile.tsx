@@ -26,10 +26,12 @@ const Profile: (props: { className?: any }) => any = props => {
   const classes = useStyles({});
 
   const user = {
-    name: "foo",
+    name: "London",
     avatar: "https://www.fnordware.com/superpng/pnggrad8rgb.jpg",
-    bio: "X"
   };
+
+  const dateString = new Date().toLocaleDateString("en-GB",
+    { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
   return (
     <div {...rest} className={clsx(classes.root, className)}>
@@ -37,7 +39,7 @@ const Profile: (props: { className?: any }) => any = props => {
       <Typography className={classes.name} variant="h4">
         {user.name}
       </Typography>
-      <Typography variant="body2">{user.bio}</Typography>
+      <Typography variant="body2">{dateString}</Typography>
     </div>
   );
 };
