@@ -22,7 +22,7 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
 
 const Topbar: React.FC<any> = props => {
   const { className, onSidebarOpen, ...rest } = props;
-  const classes = useStyles({});
+  const classes = useStyles();
 
   return (
     <AppBar
@@ -31,11 +31,11 @@ const Topbar: React.FC<any> = props => {
       className={clsx(classes.root, className)}
     >
       <Toolbar>
-        <RouterLink to="/">
+        <RouterLink to="/" style={{paddingTop:3}}>
           <Logo />
         </RouterLink>
         <Typography variant="h5" className={classes.flexGrow}>
-          Weather
+          Dalusia Weather
         </Typography>
         <div className={classes.flexGrow} />
         <Hidden smDown>
