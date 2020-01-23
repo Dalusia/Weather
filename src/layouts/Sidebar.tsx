@@ -46,7 +46,7 @@ const Sidebar: (props: {
 }) => any = props => {
   const { open, variant, onClose, className, ...rest } = props;
 
-  const classes = useStyles({});
+  const classes = useStyles();
 
   const pages = [
     {

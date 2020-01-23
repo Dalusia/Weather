@@ -47,8 +47,6 @@ const useStyles = makeStyles((theme: Theme) =>
       filter: "invert(75%)"
     },
     unitAndValue: {
-      //alignItems: "right",
-      //textAlign: "right",
       lineHeight: "20px"
     },
     unit: {
@@ -100,7 +98,7 @@ const ValueWithUnit: React.FC<{ value: number; unit: string }> = ({
   value,
   unit
 }) => {
-  const classes = useStyles({});
+  const classes = useStyles();
 
   return (
     <div className={classes.unitAndValue}>
@@ -111,7 +109,7 @@ const ValueWithUnit: React.FC<{ value: number; unit: string }> = ({
 };
 
 const Home: React.FC = () => {
-  const classes = useStyles({});
+  const classes = useStyles();
 
   const [forecast, setForecast] = useState<Weather[]>();
   useEffect(() => {
@@ -155,9 +153,7 @@ const Home: React.FC = () => {
                 <TableCell className={classes.tableCell}>
                   <img
                     className={classes.weatherIcon}
-                    src={`https://www.metaweather.com/static/img/weather/${
-                      x.weather_state_abbr
-                    }.svg`}
+                    src={`https://www.metaweather.com/static/img/weather/${x.weather_state_abbr}.svg`}
                     alt={x.weather_state_name}
                   />
                 </TableCell>
@@ -172,7 +168,7 @@ const Home: React.FC = () => {
                       alt={x.wind_direction_compass}
                       style={{ transform: `rotate(${x.wind_direction}deg)` }}
                     />
-                    &nbsp;
+                    &nbsp;&nbsp;
                     <ValueWithUnit value={x.wind_speed} unit="mph" />
                   </div>
                 </TableCell>
