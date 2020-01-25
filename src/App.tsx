@@ -7,6 +7,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import Routes from "./Routes";
 import { ThemeContext } from "./Context";
 import { lightTheme, darkTheme } from "./Theme";
+import { usePosition } from "use-position"
 
 const browserHistory = createBrowserHistory();
 
@@ -22,7 +23,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeContext.Provider
-      value={{ darkMode: darkMode, setDarkMode: setDarkModeWrapper }}
+      value={{ darkMode: darkMode, setDarkMode: setDarkModeWrapper, position: usePosition(true) }}
     >
       <MuiThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
