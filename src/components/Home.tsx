@@ -112,8 +112,9 @@ const Home: React.FC = () => {
   const classes = useStyles();
 
   const [forecast, setForecast] = useState<Weather[]>();
-  useEffect(() => {
-    refreshForecast();
+  
+  useEffect(() => { 
+    refreshForecast() 
   }, []);
 
   const refreshForecast = async () => {
