@@ -21,11 +21,12 @@ const imageCache = {}
 interface Position {latitude:number, longitude:number}
 
 const mapUrl = (position:Position, zoom:number) => {
-  const geo = position.latitude + "," + position.longitude
-  const pin = `locations=${geo}&size=@1x&defaultMarker=via-red`
+  const hasPosition : ()=>boolean = () => position.latitude !== undefined
+  const geo = hasPosition() ? position.latitude + "," + position.longitude : "30,0"
+  const pin = hasPosition() ? `&locations=${geo}&size=@1x&defaultMarker=via-red` : ''
   const key = 'lLPhHetyJqHgT3uB14eb2TABLeYaNOtD'
-  const queryString = `center=${geo}&key=${key}&size=207,207&${pin}`
-  return `https://open.mapquestapi.com/staticmap/v5/map?${queryString}&zoom=${zoom}`
+  const queryString = `center=${geo}&key=${key}&size=207,207${pin}&zoom=${hasPosition() ? zoom : 0}`
+  return `https://open.mapquestapi.com/staticmap/v5/map?${queryString}`
 }
 
 export const Map = (position:Position) => {
